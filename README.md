@@ -6,8 +6,10 @@ These modules are needed to allow true univeral user interfaces. Each module mus
 
 **Modules**
 
-* Notifications
-* Camera
+* Platform (iOS-specific)
+	* setStatusBarStyle
+	* networkActivityIndicator
+	* applicationIconBadgeNumber
 
 
 
