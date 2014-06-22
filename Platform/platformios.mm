@@ -106,3 +106,11 @@ void PlatformiOS::setApplicationIconBadgeNumber(int arg)
 //}
 
 
+void PlatformiOS::setStatusBarVisible(bool arg)
+{
+    if (m_statusBarVisible != arg) {
+        m_statusBarVisible = arg;
+        [[UIApplication sharedApplication] setStatusBarHidden:!arg withAnimation:UIStatusBarAnimationSlide];
+        emit statusBarVisibleChanged(arg);
+    }
+}

@@ -10,6 +10,7 @@ class PlatformiOS : public QQuickItem
     Q_PROPERTY(StatusBarStyle statusBarStyle READ statusBarStyle WRITE setStatusBarStyle NOTIFY statusBarStyleChanged)
     Q_PROPERTY(bool networkActivityIndicator READ networkActivityIndicator WRITE setNetworkActivityIndicator NOTIFY networkActivityIndicatorChanged)
     Q_PROPERTY(int applicationIconBadgeNumber READ applicationIconBadgeNumber WRITE setApplicationIconBadgeNumber NOTIFY applicationIconBadgeNumberChanged)
+    Q_PROPERTY(bool statusBarVisible READ statusBarVisible WRITE setStatusBarVisible NOTIFY statusBarVisibleChanged)
 public:
     explicit PlatformiOS(QQuickItem *parent = 0);
     
@@ -34,6 +35,11 @@ public:
         return m_applicationIconBadgeNumber;
     }
 
+    bool statusBarVisible() const
+    {
+        return m_statusBarVisible;
+    }
+
 signals:
 
     void statusBarStyleChanged(StatusBarStyle arg);
@@ -41,6 +47,8 @@ signals:
     void networkActivityIndicatorChanged(bool arg);
 
     void applicationIconBadgeNumberChanged(int arg);
+
+    void statusBarVisibleChanged(bool arg);
 
 public slots:
 
@@ -50,11 +58,14 @@ public slots:
 
     void setApplicationIconBadgeNumber(int arg);
 
+    void setStatusBarVisible(bool arg);
+
 private:
     void *m_delegate;
     StatusBarStyle m_statusBarStyle;
     bool m_networkActivityIndicator;
     int m_applicationIconBadgeNumber;
+    bool m_statusBarVisible;
 };
 
 #endif // PLATFORMIOS_H
