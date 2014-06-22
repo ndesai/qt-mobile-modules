@@ -1,5 +1,5 @@
 #include <UIKit/UIKit.h>
-#include <QtGui/5.2.1/QtGui/qpa/qplatformnativeinterface.h>
+#include <QtGui/5.3.0/QtGui/qpa/qplatformnativeinterface.h>
 #include <QtGui>
 #include <QtQuick>
 #include "platformios.h"
