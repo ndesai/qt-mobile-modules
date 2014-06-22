@@ -1,0 +1,3 @@
+module st.app.platform
+plugin PlatformPlugin
+classname PlatformPlugin
