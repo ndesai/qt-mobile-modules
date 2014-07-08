@@ -11,9 +11,11 @@ static: QMAKE_MOC_OPTIONS += -Muri=st.app.platform
 CONFIG += static
 LIBS += -framework MediaPlayer
 LIBS += -framework UIKit
+LIBS += -framework MobileCoreServices
 HEADERS += platformios.h
 OBJECTIVE_SOURCES += \
-    platformios.mm
+    platformios.mm \
+    imagepicker.mm
 }
 
 # Input
@@ -22,7 +24,8 @@ SOURCES += \
 
 HEADERS += \
     platform_plugin.h \
-    definition.h
+    definition.h \
+    imagepicker.h
 
 OTHER_FILES = qmldir
 

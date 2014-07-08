@@ -50,6 +50,15 @@ signals:
 
     void statusBarVisibleChanged(bool arg);
 
+    // Application Lifecycle
+    void applicationDidBecomeActive();
+    void applicationWillResignActive();
+    void applicationDidEnterBackground();
+    void applicationWillEnterForeground();
+    void applicationDidFinishLaunching();
+    void applicationDidReceiveMemoryWarning();
+    void applicationWillTerminate();
+
 public slots:
 
     void setStatusBarStyle(StatusBarStyle arg);

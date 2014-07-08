@@ -16,8 +16,79 @@
     self = [super init];
     if (self) {
         m_platform = platform;
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidBecomeActive:)
+                                                     name:UIApplicationDidBecomeActiveNotification object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationWillResignActive:)
+                                                     name:UIApplicationWillResignActiveNotification object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidEnterBackground:)
+                                                     name:UIApplicationDidEnterBackgroundNotification object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationWillEnterForeground:)
+                                                     name:UIApplicationWillEnterForegroundNotification object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidFinishLaunching:)
+                                                     name:UIApplicationDidFinishLaunchingNotification object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationDidReceiveMemoryWarning:)
+                                                     name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(applicationWillTerminate:)
+                                                     name:UIApplicationWillTerminateNotification object:nil];
+
     }
     return self;
+}
+
+- (void) applicationDidBecomeActive:(id)sender
+{
+    DEBUG;
+    m_platform->applicationDidBecomeActive();
+}
+
+- (void) applicationWillResignActive:(id)sender
+{
+    DEBUG;
+    m_platform->applicationWillResignActive();
+}
+
+- (void) applicationDidEnterBackground:(id)sender
+{
+    DEBUG;
+    m_platform->applicationDidEnterBackground();
+}
+
+- (void) applicationWillEnterForeground:(id)sender
+{
+    DEBUG;
+    m_platform->applicationWillEnterForeground();
+}
+
+- (void) applicationDidFinishLaunching:(id)sender
+{
+    DEBUG;
+    m_platform->applicationDidFinishLaunching();
+}
+
+- (void) applicationDidReceiveMemoryWarning:(id)sender
+{
+    DEBUG;
+    m_platform->applicationDidReceiveMemoryWarning();
+}
+
+- (void) applicationWillTerminate:(id)sender
+{
+    DEBUG;
+    m_platform->applicationWillTerminate();
 }
 
 @end
