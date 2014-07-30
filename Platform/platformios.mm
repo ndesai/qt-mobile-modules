@@ -1,5 +1,5 @@
 #include <UIKit/UIKit.h>
-#include <QtGui/5.3.0/QtGui/qpa/qplatformnativeinterface.h>
+#include <QtGui/5.3.1/QtGui/qpa/qplatformnativeinterface.h>
 #include <QtGui>
 #include <QtQuick>
 #include "platformios.h"
@@ -17,33 +17,33 @@
     if (self) {
         m_platform = platform;
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationDidBecomeActive:)
-                                                     name:UIApplicationDidBecomeActiveNotification object:nil];
+                                                          selector:@selector(applicationDidBecomeActive:)
+          name:UIApplicationDidBecomeActiveNotification object:nil];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationWillResignActive:)
-                                                     name:UIApplicationWillResignActiveNotification object:nil];
+                                                          selector:@selector(applicationWillResignActive:)
+          name:UIApplicationWillResignActiveNotification object:nil];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationDidEnterBackground:)
-                                                     name:UIApplicationDidEnterBackgroundNotification object:nil];
+                                                          selector:@selector(applicationDidEnterBackground:)
+          name:UIApplicationDidEnterBackgroundNotification object:nil];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationWillEnterForeground:)
-                                                     name:UIApplicationWillEnterForegroundNotification object:nil];
+                                                          selector:@selector(applicationWillEnterForeground:)
+          name:UIApplicationWillEnterForegroundNotification object:nil];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationDidFinishLaunching:)
-                                                     name:UIApplicationDidFinishLaunchingNotification object:nil];
+                                                          selector:@selector(applicationDidFinishLaunching:)
+          name:UIApplicationDidFinishLaunchingNotification object:nil];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationDidReceiveMemoryWarning:)
-                                                     name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+                                                          selector:@selector(applicationDidReceiveMemoryWarning:)
+          name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
 
 
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(applicationWillTerminate:)
-                                                     name:UIApplicationWillTerminateNotification object:nil];
+                                                          selector:@selector(applicationWillTerminate:)
+          name:UIApplicationWillTerminateNotification object:nil];
 
     }
     return self;
