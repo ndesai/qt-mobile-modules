@@ -1,4 +1,5 @@
 #include <UIKit/UIKit.h>
+#include <AudioToolbox/AudioToolbox.h>
 #include <QtGui/5.3.1/QtGui/qpa/qplatformnativeinterface.h>
 #include <QtGui>
 #include <QtQuick>
@@ -148,4 +149,9 @@ void PlatformiOS::setStatusBarVisible(bool arg)
         [[UIApplication sharedApplication] setStatusBarHidden:!arg withAnimation:UIStatusBarAnimationSlide];
         emit statusBarVisibleChanged(arg);
     }
+}
+
+void PlatformiOS::vibrate()
+{
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }

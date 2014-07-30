@@ -19,6 +19,7 @@ public:
         StatusBarStyleLightContent = 1 // Light content, for use on dark backgrounds
     };
     
+    Q_INVOKABLE void vibrate();
     
     StatusBarStyle statusBarStyle() const
     {

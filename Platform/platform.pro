@@ -12,6 +12,8 @@ CONFIG += static
 LIBS += -framework MediaPlayer
 LIBS += -framework UIKit
 LIBS += -framework MobileCoreServices
+LIBS += -framework AudioToolbox
+
 HEADERS += platformios.h
 OBJECTIVE_SOURCES += \
     platformios.mm \
