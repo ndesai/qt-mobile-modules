@@ -37,10 +37,18 @@
     {
         image = [info objectForKey:UIImagePickerControllerOriginalImage];
     }
+    DEBUG << m_imagePicker->imageScale();
+    DEBUG << m_imagePicker->imageQuality();
+    DEBUG << m_imagePicker->saveImageToCameraRoll();
+    if(m_imagePicker->saveImageToCameraRoll())
+    {
+        DEBUG << "#####" << m_imagePicker->saveImageToCameraRoll();
+        UIImageWriteToSavedPhotosAlbum([info objectForKey:UIImagePickerControllerOriginalImage], nil, nil, nil);
+    }
     UIImage *uImage = [UIImage imageWithCGImage:[image CGImage]
-            scale:0.6
+            scale:m_imagePicker->imageScale()
             orientation:UIImageOrientationDown];
-    [UIImageJPEGRepresentation(uImage, 0.8) writeToFile:path options:NSAtomicWrite error:nil];
+    [UIImageJPEGRepresentation(uImage, m_imagePicker->imageQuality()) writeToFile:path options:NSAtomicWrite error:nil];
     m_imagePicker->setImagePath(QString::fromNSString(path));
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
@@ -49,7 +57,10 @@
 
 ImagePicker::ImagePicker(QQuickItem *parent) :
     QQuickItem(parent),
-    m_delegate([[ImagePickerDelegate alloc] initWithObject:this])
+    m_delegate([[ImagePickerDelegate alloc] initWithObject:this]),
+    m_imageScale(1.0),
+    m_imageQuality(1.0),
+    m_saveImageToCameraRoll(false)
 {
     DEBUG;
 }
