@@ -13,11 +13,13 @@ LIBS += -framework MediaPlayer
 LIBS += -framework UIKit
 LIBS += -framework MobileCoreServices
 LIBS += -framework AudioToolbox
+LIBS += -framework iAd
 
 HEADERS += platformios.h
 OBJECTIVE_SOURCES += \
     platformios.mm \
-    imagepicker.mm
+    imagepicker.mm \
+    ad.mm
 }
 
 # Input
@@ -27,7 +29,8 @@ SOURCES += \
 HEADERS += \
     platform_plugin.h \
     definition.h \
-    imagepicker.h
+    imagepicker.h \
+    ad.h
 
 OTHER_FILES = qmldir
 
