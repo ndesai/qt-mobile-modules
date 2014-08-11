@@ -19,9 +19,34 @@ These modules are needed to allow true univeral user interfaces. Each module mus
 		* applicationDidReceiveMemoryWarning
 		* applicationWillTerminate
 	* vibrate
-	* image picker – (custom viewer window req'd)
-	* ad - iAd view support
 	
+	
+* ImagePicker – (custom viewer window req'd)
+	
+	```
+	ImagePicker {
+		// openPicker() - open camera roll image picker
+		// openCamera() - open camera
+
+		onImagePathChanged: {
+			// The user-selected imagePath
+			// Images are stored in the documents directory
+			_Image.source = imagePath;
+		}
+		
+	}
+	```
+	
+* Ad - iAd view support
+	
+	```
+	Ad {
+		Component.onCompleted: display()
+	}
+	```
+	
+	
+* QML component loading to use ImagePicker and Ad
 	
 	```
 	QQmlEngine engine;
