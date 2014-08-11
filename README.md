@@ -19,7 +19,9 @@ These modules are needed to allow true univeral user interfaces. Each module mus
 		* applicationDidReceiveMemoryWarning
 		* applicationWillTerminate
 	* vibrate
-	* image picker – custom viewer window required:
+	* image picker – (custom viewer window req'd)
+	* ad - iAd view support
+	
 	
 	```
 	QQmlEngine engine;
