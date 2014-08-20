@@ -4,6 +4,8 @@
 #include <QtQuick>
 #include <MobileCoreServices/MobileCoreServices.h>
 #include "imagepicker.h"
+#define PICKER 6
+#define CAMERA 7
 
 @interface ImagePickerDelegate : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
                                      ImagePicker *m_imagePicker;
@@ -40,7 +42,7 @@
     DEBUG << m_imagePicker->imageScale();
     DEBUG << m_imagePicker->imageQuality();
     DEBUG << m_imagePicker->saveImageToCameraRoll();
-    if(m_imagePicker->saveImageToCameraRoll())
+    if(picker.view.tag == CAMERA && m_imagePicker->saveImageToCameraRoll())
     {
         DEBUG << "#####" << m_imagePicker->saveImageToCameraRoll();
         UIImageWriteToSavedPhotosAlbum([info objectForKey:UIImagePickerControllerOriginalImage], nil, nil, nil);
@@ -76,6 +78,7 @@ void ImagePicker::openPicker()
     [imageController setAllowsEditing: YES];
     [imageController setDelegate:id(m_delegate)];
     [imageController setMediaTypes: [NSArray arrayWithObjects:(NSString*)kUTTypeImage, nil]];
+    [[imageController view] setTag:PICKER];
     [qtController presentViewController:imageController animated:YES completion:nil];
 }
 
@@ -90,5 +93,6 @@ void ImagePicker::openCamera()
     [imageController setAllowsEditing: YES];
     [imageController setDelegate:id(m_delegate)];
     [imageController setMediaTypes: [NSArray arrayWithObjects:(NSString*)kUTTypeImage, nil]];
+    [[imageController view] setTag:CAMERA];
     [qtController presentViewController:imageController animated:YES completion:nil];
 }
