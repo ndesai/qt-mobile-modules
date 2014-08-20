@@ -14,6 +14,7 @@ LIBS += -framework UIKit
 LIBS += -framework MobileCoreServices
 LIBS += -framework AudioToolbox
 LIBS += -framework iAd
+LIBS += -framework MessageUI
 
 HEADERS += platformios.h
 OBJECTIVE_SOURCES += \
@@ -30,7 +31,8 @@ HEADERS += \
     platform_plugin.h \
     definition.h \
     imagepicker.h \
-    ad.h
+    ad.h \
+    mailer.h
 
 OTHER_FILES = qmldir
 
@@ -49,4 +51,7 @@ unix {
     target.path = $$installPath
     INSTALLS += target qmldir
 }
+
+OBJECTIVE_SOURCES += \
+    mailer.mm
 

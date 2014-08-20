@@ -21,7 +21,7 @@ These modules are needed to allow true univeral user interfaces. Each module mus
 	* vibrate
 	
 	
-* ImagePicker – (custom viewer window req'd)
+* ImagePicker – [UIImagePickerController](https://developer.apple.com/library/ios/documentation/uikit/reference/UIImagePickerController_Class/UIImagePickerController/UIImagePickerController.html) support
 	
 	```
 	ImagePicker {
@@ -37,7 +37,7 @@ These modules are needed to allow true univeral user interfaces. Each module mus
 	}
 	```
 	
-* Ad - iAd view support
+* Ad - [iAd](https://developer.apple.com/library/ios/documentation/userexperience/Reference/iAd_ReferenceCollection/_index.html) view support
 	
 	```
 	Ad {
@@ -45,8 +45,18 @@ These modules are needed to allow true univeral user interfaces. Each module mus
 	}
 	```
 	
+* Mailer - [MFMailComposeViewController](https://developer.apple.com/library/ios/documentation/MessageUI/Reference/MFMailComposeViewController_class/Reference/Reference.html) support
+
+	```
+	Mailer {
+		Component.onCompleted: {
+			open("Subject Line", ["recipient@gmail.com", "recipient@yahoo.com"], "Body of the email")
+		}
+	}
+	```
+
 	
-* QML component loading to use ImagePicker and Ad
+* QML component loading to use any modal (visual) component you must expose the component as a Window
 	
 	```
 	QQmlEngine engine;
