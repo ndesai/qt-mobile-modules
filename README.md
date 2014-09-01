@@ -4,6 +4,10 @@ ___
 
 These modules are needed to allow true univeral user interfaces. Each module must have an identical interface to QML.
 
+** TODO **
+
+There currently is no Android support for any of these modules. If you are interested in developing for Android, please create a pull request and we can start building a universal library of Qt mobile components.
+
 **Modules**
 
 * Platform (iOS-specific)
