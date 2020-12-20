@@ -1,14 +1,10 @@
 ## Qt Mobile Modules ##
-###Android & iOS###
-___
 
-These modules are needed to allow true univeral user interfaces. Each module must have an identical interface to QML.
+A collection of platform integrations to allow Qt/QML interfaces to commonly used iOS functionality.  
 
-**TODO**
+Android support is planned but currently not started/implemented. If you are interested in developing for Android, please create a pull request and we can start building a universal library of Qt mobile components.
 
-There currently is no Android support for any of these modules. If you are interested in developing for Android, please create a pull request and we can start building a universal library of Qt mobile components.
-
-**Modules**
+### Modules
 
 * Platform (iOS-specific)
 	* setStatusBarStyle
