@@ -35,56 +35,52 @@ public:
     }
 
 signals:
-
     void imagePathChanged(QString imagePath);
-
     void imageScaleChanged(float arg);
-
     void imageQualityChanged(float arg);
-
     void saveImageToCameraRollChanged(bool arg);
 
 public slots:
 
-void setImagePath(QString arg)
-{
-    if (m_imagePath != arg) {
-        m_imagePath = arg;
-        emit imagePathChanged(arg);
+    void setImagePath(QString arg)
+    {
+        if (m_imagePath != arg) {
+            m_imagePath = arg;
+            emit imagePathChanged(arg);
+        }
     }
-}
 
-void setImageScale(float arg)
-{
-    if (m_imageScale != arg) {
-        m_imageScale = arg;
-        emit imageScaleChanged(arg);
+    void setImageScale(float arg)
+    {
+        if (m_imageScale != arg) {
+            m_imageScale = arg;
+            emit imageScaleChanged(arg);
+        }
     }
-}
 
-void setImageQuality(float arg)
-{
-    if (m_imageQuality != arg) {
-        m_imageQuality = arg;
-        emit imageQualityChanged(arg);
+    void setImageQuality(float arg)
+    {
+        if (m_imageQuality != arg) {
+            m_imageQuality = arg;
+            emit imageQualityChanged(arg);
+        }
     }
-}
 
-void setSaveImageToCameraRoll(bool arg)
-{
-    DEBUG << arg;
-    if (m_saveImageToCameraRoll != arg) {
-        m_saveImageToCameraRoll = arg;
-        emit saveImageToCameraRollChanged(arg);
+    void setSaveImageToCameraRoll(bool arg)
+    {
+        DEBUG << arg;
+        if (m_saveImageToCameraRoll != arg) {
+            m_saveImageToCameraRoll = arg;
+            emit saveImageToCameraRollChanged(arg);
+        }
     }
-}
 
 private:
-void *m_delegate;
-QString m_imagePath;
-float m_imageScale;
-float m_imageQuality;
-bool m_saveImageToCameraRoll;
+    void *m_delegate;
+    QString m_imagePath;
+    float m_imageScale;
+    float m_imageQuality;
+    bool m_saveImageToCameraRoll;
 };
 
 #endif // IMAGEPICKER_H

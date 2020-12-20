@@ -94,6 +94,7 @@
 
 @end
 
+QT_BEGIN_NAMESPACE
 
 PlatformiOS::PlatformiOS(QQuickItem *parent) :
     QQuickItem(parent),
@@ -104,28 +105,32 @@ PlatformiOS::PlatformiOS(QQuickItem *parent) :
     DEBUG;
 }
 
-/*
- * setStatusBarStyle
+/**
+ * @brief PlatformiOS::setStatusBarStyle
+ * @param arg
  * You must set "UIViewControllerBasedStatusBarAppearance" to "NO" in your Info.plist (XCode project setup)
- * */
+ */
 void PlatformiOS::setStatusBarStyle(StatusBarStyle arg)
 {
-    DEBUG << arg;
+    qDebug() << Q_FUNC_INFO;
     if (m_statusBarStyle != arg) {
         m_statusBarStyle = arg;
-        if(arg == StatusBarStyleDefault)
-        {
+        if(arg == StatusBarStyleDefault) {
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-        } else
-        {
+        } else {
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
         }
         emit statusBarStyleChanged(arg);
     }
 }
 
+/**
+ * @brief PlatformiOS::setNetworkActivityIndicator
+ * @param arg
+ */
 void PlatformiOS::setNetworkActivityIndicator(bool arg)
 {
+    qDebug() << Q_FUNC_INFO;
     if (m_networkActivityIndicator != arg) {
         m_networkActivityIndicator = arg;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:arg];
@@ -133,8 +138,13 @@ void PlatformiOS::setNetworkActivityIndicator(bool arg)
     }
 }
 
+/**
+ * @brief PlatformiOS::setApplicationIconBadgeNumber
+ * @param arg
+ */
 void PlatformiOS::setApplicationIconBadgeNumber(int arg)
 {
+    qDebug() << Q_FUNC_INFO;
     if (m_applicationIconBadgeNumber != arg) {
         m_applicationIconBadgeNumber = arg;
         [[UIApplication sharedApplication] setApplicationIconBadgeNumber:arg];
@@ -142,8 +152,13 @@ void PlatformiOS::setApplicationIconBadgeNumber(int arg)
     }
 }
 
+/**
+ * @brief PlatformiOS::setStatusBarVisible
+ * @param arg
+ */
 void PlatformiOS::setStatusBarVisible(bool arg)
 {
+    qDebug() << Q_FUNC_INFO;
     if (m_statusBarVisible != arg) {
         m_statusBarVisible = arg;
         [[UIApplication sharedApplication] setStatusBarHidden:!arg withAnimation:UIStatusBarAnimationSlide];
@@ -151,7 +166,14 @@ void PlatformiOS::setStatusBarVisible(bool arg)
     }
 }
 
+/**
+ * @brief PlatformiOS::vibrate
+ */
 void PlatformiOS::vibrate()
 {
+    qDebug() << Q_FUNC_INFO;
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }
+
+QT_END_NAMESPACE

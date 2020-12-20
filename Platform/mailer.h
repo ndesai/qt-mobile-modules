@@ -1,5 +1,4 @@
-#ifndef MAILER_H
-#define MAILER_H
+#pragma once
 
 #include <QQuickItem>
 #include "definition.h"
@@ -22,5 +21,3 @@ private:
     void *m_delegate;
 
 };
-
-#endif // MAILER_H

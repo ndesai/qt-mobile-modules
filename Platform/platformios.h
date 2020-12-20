@@ -1,5 +1,4 @@
-#ifndef PLATFORMIOS_H
-#define PLATFORMIOS_H
+#pragma once
 
 #include <QQuickItem>
 #include "definition.h"
@@ -42,13 +41,9 @@ public:
     }
 
 signals:
-
     void statusBarStyleChanged(StatusBarStyle arg);
-
     void networkActivityIndicatorChanged(bool arg);
-
     void applicationIconBadgeNumberChanged(int arg);
-
     void statusBarVisibleChanged(bool arg);
 
     // Application Lifecycle
@@ -61,13 +56,9 @@ signals:
     void applicationWillTerminate();
 
 public slots:
-
     void setStatusBarStyle(StatusBarStyle arg);
-
     void setNetworkActivityIndicator(bool arg);
-
     void setApplicationIconBadgeNumber(int arg);
-
     void setStatusBarVisible(bool arg);
 
 private:
@@ -77,5 +68,3 @@ private:
     int m_applicationIconBadgeNumber;
     bool m_statusBarVisible;
 };
-
-#endif // PLATFORMIOS_H

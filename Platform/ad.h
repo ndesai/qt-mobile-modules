@@ -1,5 +1,4 @@
-#ifndef AD_H
-#define AD_H
+#pragma once
 
 #include <QQuickItem>
 
@@ -21,5 +20,3 @@ private:
     void *m_ad;
     void *m_delegate;
 };
-
-#endif // AD_H

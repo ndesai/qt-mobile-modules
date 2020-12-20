@@ -27,8 +27,7 @@
     DEBUG;
     Q_UNUSED(controller)
     Q_UNUSED(error)
-    switch (result)
-    {
+    switch (result) {
     case MFMailComposeResultCancelled:
         m_mailer->mailCancelled();
         break;
@@ -50,6 +49,7 @@
 
 @end
 
+QT_BEGIN_NAMESPACE
 
 Mailer::Mailer(QQuickItem *parent) :
     QQuickItem(parent),
@@ -58,6 +58,12 @@ Mailer::Mailer(QQuickItem *parent) :
     DEBUG;
 }
 
+/**
+ * @brief Mailer::open
+ * @param subject
+ * @param recipients
+ * @param body
+ */
 void Mailer::open(QString subject, QList<QString> recipients, QString body)
 {
     UIView *view = static_cast<UIView *>(
@@ -77,3 +83,5 @@ void Mailer::open(QString subject, QList<QString> recipients, QString body)
     [mailer setMessageBody:emailBody isHTML:NO];
     [qtController presentViewController:mailer animated:YES completion:nil];
 }
+
+QT_END_NAMESPACE

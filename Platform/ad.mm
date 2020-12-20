@@ -44,10 +44,12 @@
 
 @end
 
+QT_BEGIN_NAMESPACE
+
 Ad::Ad(QQuickItem *parent) :
     QQuickItem(parent),
-    m_delegate([[AdDelegate alloc] initWithObject:this]),
-    m_ad(NULL)
+    m_ad(NULL),
+    m_delegate([[AdDelegate alloc] initWithObject:this])
 {
     this->setX(0);
     this->setY(0);
@@ -55,34 +57,39 @@ Ad::Ad(QQuickItem *parent) :
     this->setHeight(50);
 }
 
+/**
+ * @brief Ad::display
+ */
 void Ad::display()
 {
     this->updateGeometry();
 }
 
+/**
+ * @brief Ad::updateGeometry
+ */
 void Ad::updateGeometry()
 {
     UIView *view = static_cast<UIView *>(
                 QGuiApplication::platformNativeInterface()
                 ->nativeResourceForWindow("uiview", window()));
 
-    if(m_ad)
-    {
+    if(m_ad) {
        [m_ad setFrame:CGRectMake(this->x(), this->y(), this->width(), this->height())];
-    }
-    else
-    {
+    } else {
         m_ad = [[ADBannerView alloc] initWithFrame:CGRectMake(this->x(), this->y(), this->width(), this->height())];
         [m_ad setDelegate:static_cast<id>(m_delegate)];
         [view addSubview: static_cast<UIView *>(m_ad)];
 
-        connect(this, SIGNAL(xChanged()),
+        QObject::connect(this, SIGNAL(xChanged()),
                 this, SLOT(updateGeometry()));
-        connect(this, SIGNAL(yChanged()),
+        QObject::connect(this, SIGNAL(yChanged()),
                 this, SLOT(updateGeometry()));
-        connect(this, SIGNAL(widthChanged()),
+        QObject::connect(this, SIGNAL(widthChanged()),
                 this, SLOT(updateGeometry()));
-        connect(this, SIGNAL(heightChanged()),
+        QObject::connect(this, SIGNAL(heightChanged()),
                 this, SLOT(updateGeometry()));
     }
 }
+
+QT_END_NAMESPACE

@@ -57,9 +57,12 @@
 
 @end
 
+QT_BEGIN_NAMESPACE
+
 ImagePicker::ImagePicker(QQuickItem *parent) :
     QQuickItem(parent),
     m_delegate([[ImagePickerDelegate alloc] initWithObject:this]),
+    m_imagePath(QString()),
     m_imageScale(1.0),
     m_imageQuality(1.0),
     m_saveImageToCameraRoll(false)
@@ -67,6 +70,9 @@ ImagePicker::ImagePicker(QQuickItem *parent) :
     DEBUG;
 }
 
+/**
+ * @brief ImagePicker::openPicker
+ */
 void ImagePicker::openPicker()
 {
     UIView *view = static_cast<UIView *>(
@@ -82,6 +88,9 @@ void ImagePicker::openPicker()
     [qtController presentViewController:imageController animated:YES completion:nil];
 }
 
+/**
+ * @brief ImagePicker::openCamera
+ */
 void ImagePicker::openCamera()
 {
     UIView *view = static_cast<UIView *>(
@@ -96,3 +105,5 @@ void ImagePicker::openCamera()
     [[imageController view] setTag:CAMERA];
     [qtController presentViewController:imageController animated:YES completion:nil];
 }
+
+QT_END_NAMESPACE
