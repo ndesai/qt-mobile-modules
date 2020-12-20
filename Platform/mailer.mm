@@ -1,5 +1,5 @@
 #include <UIKit/UIKit.h>
-#include <QtGui/5.3.1/QtGui/qpa/qplatformnativeinterface.h>
+#include <qpa/qplatformnativeinterface.h>
 #include <QtGui>
 #include <QtQuick>
 #import <MessageUI/MessageUI.h>

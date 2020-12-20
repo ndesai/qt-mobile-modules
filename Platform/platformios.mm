@@ -1,6 +1,6 @@
 #include <UIKit/UIKit.h>
 #include <AudioToolbox/AudioToolbox.h>
-#include <QtGui/5.3.1/QtGui/qpa/qplatformnativeinterface.h>
+#include <qpa/qplatformnativeinterface.h>
 #include <QtGui>
 #include <QtQuick>
 #include "platformios.h"

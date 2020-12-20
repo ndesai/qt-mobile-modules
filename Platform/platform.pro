@@ -1,6 +1,10 @@
 TEMPLATE = lib
 TARGET = PlatformPlugin
 QT += qml quick sql core
+
+# Needed for iOS / Android integration
+QT += gui-private
+
 CONFIG += qt plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)
