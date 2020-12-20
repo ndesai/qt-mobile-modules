@@ -1,7 +1,10 @@
 TEMPLATE = lib
 TARGET = PlatformPlugin
-QT += qml quick sql core
 
+QT += qml
+QT += quick
+QT += sql
+QT += core
 # Needed for iOS / Android integration
 QT += gui-private
 
@@ -11,20 +14,21 @@ TARGET = $$qtLibraryTarget($$TARGET)
 uri = st.app.platform
 
 ios {
-static: QMAKE_MOC_OPTIONS += -Muri=st.app.platform
-CONFIG += static
-LIBS += -framework MediaPlayer
-LIBS += -framework UIKit
-LIBS += -framework MobileCoreServices
-LIBS += -framework AudioToolbox
-LIBS += -framework iAd
-LIBS += -framework MessageUI
+    static: QMAKE_MOC_OPTIONS += -Muri=st.app.platform
+    CONFIG += static
+    LIBS += -framework MediaPlayer
+    LIBS += -framework UIKit
+    LIBS += -framework MobileCoreServices
+    LIBS += -framework AudioToolbox
+    LIBS += -framework iAd
+    LIBS += -framework MessageUI
 
-HEADERS += platformios.h
-OBJECTIVE_SOURCES += \
-    platformios.mm \
-    imagepicker.mm \
-    ad.mm
+    HEADERS += platformios.h
+    OBJECTIVE_SOURCES += \
+        platformios.mm \
+        imagepicker.mm \
+        ad.mm \
+        mailer.mm
 }
 
 # Input
@@ -55,7 +59,3 @@ unix {
     target.path = $$installPath
     INSTALLS += target qmldir
 }
-
-OBJECTIVE_SOURCES += \
-    mailer.mm
-
