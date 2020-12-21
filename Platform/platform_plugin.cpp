@@ -8,6 +8,7 @@
 void PlatformPlugin::registerTypes(const char *uri)
 {
     // @uri st.app.models
+    Q_INIT_RESOURCE(PlatformPlugin);
     qmlRegisterType<PlatformiOS>(uri, 1, 0, "PlatformiOS");
     qmlRegisterType<ImagePicker>(uri, 1, 0, "ImagePicker");
     qmlRegisterType<Ad>(uri, 1, 0, "Ad");

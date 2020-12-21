@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/qml/st/app/platform">
+        <file>qmldir</file>
+    </qresource>
+</RCC>

@@ -12,9 +12,10 @@ CONFIG += qt plugin
 
 TARGET = $$qtLibraryTarget($$TARGET)
 uri = st.app.platform
+QMAKE_MOC_OPTIONS += -Muri=$$uri
+RESOURCES += $$_PRO_FILE_PWD_/$${TARGET}.qrc
 
 ios {
-    static: QMAKE_MOC_OPTIONS += -Muri=st.app.platform
     CONFIG += static
     LIBS += -framework MediaPlayer
     LIBS += -framework UIKit
@@ -43,6 +44,7 @@ HEADERS += \
     mailer.h
 
 OTHER_FILES = qmldir
+DISTFILES = qmldir
 
 !equals(_PRO_FILE_PWD_, $$OUT_PWD) {
     copy_qmldir.target = $$OUT_PWD/qmldir
